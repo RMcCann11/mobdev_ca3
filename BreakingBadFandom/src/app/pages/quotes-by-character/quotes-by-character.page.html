@@ -1,9 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>quotesByCharacter</ion-title>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="/tabs/charactersForQuotes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Quotes by {{author}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item button detail lines="inset" *ngFor="let qoute of (quotes)">
+    {{ qoute.quote }}
+    </ion-item>
+  </ion-list>
 </ion-content>

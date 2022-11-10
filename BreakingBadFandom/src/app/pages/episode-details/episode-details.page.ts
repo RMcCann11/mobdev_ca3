@@ -17,7 +17,6 @@ export class EpisodeDetailsPage implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`).subscribe((res) => {
       this.episode = res;
-      console.log(res);
     });
   }
 

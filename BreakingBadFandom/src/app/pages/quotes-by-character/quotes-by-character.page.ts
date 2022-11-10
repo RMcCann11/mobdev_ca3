@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-quotes-by-character',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuotesByCharacterPage implements OnInit {
 
-  constructor() { }
+  author : string;
+ 
+  quotes: any;
+
+  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
+
+    this.activatedRoute.queryParams.subscribe((params) => {
+
+      this.author = params.author;
+
+    });
+
+    this.http.get(`https://breakingbadapi.com/api/quote?author=${this.author}`).subscribe((res) => {
+            
+      this.quotes = res;
+          
+    });
   }
 
 }

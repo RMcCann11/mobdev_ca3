@@ -19,15 +19,13 @@ export class CharacterDetailsPage implements OnInit {
 
     this.activatedRoute.queryParams.subscribe((params) => {
 
-      console.log(params); 
-
       this.name = params.name;
 
     });
 
     this.http.get(`https://breakingbadapi.com/api/characters?name=${this.name}`).subscribe((res) => {
           this.character = res;
-          console.log(res);
+
     });
   }
 
