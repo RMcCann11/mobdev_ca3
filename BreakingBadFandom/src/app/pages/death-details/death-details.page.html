@@ -1,9 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>deathDetails</ion-title>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="/tabs/deaths"></ion-back-button>
+    </ion-buttons>
+      <ion-title>Death of {{name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+      <ion-card *ngIf="deathDetails">
+        <ion-card-content>Cause of Death: {{deathDetails[0].cause}}</ion-card-content>
+        <ion-card-content>Killed By: {{deathDetails[0].responsible}}</ion-card-content>
+        <ion-card-content>Last Words: {{deathDetails[0].last_words}}</ion-card-content>
+        <ion-card-content>Killed in episode no: {{deathDetails[0].episode}}</ion-card-content>
+      </ion-card>
 </ion-content>
