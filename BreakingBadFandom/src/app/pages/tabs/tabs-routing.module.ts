@@ -5,8 +5,80 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
+    path: 'tabs',
+    component: TabsPage,
+    children: [
+      {
+        path: 'characters',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../characters/characters.module').then( m => m.CharactersPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../character-details/character-details.module').then( m => m.CharacterDetailsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'episodes',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../episodes/episodes.module').then( m => m.EpisodesPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../episode-details/episode-details.module').then( m => m.EpisodeDetailsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'charactersForQuotes',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../quotes/quotes.module').then( m => m.QuotesPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../quotes-by-character/quotes-by-character.module').then( m => m.QuotesByCharacterPageModule)
+          }
+        ]
+      },
+      {
+        path: 'charactersForDeathCount',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../death-count/death-count.module').then( m => m.DeathCountPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../death-count-by-character/death-count-by-character.module').then( m => m.DeathCountByCharacterPageModule)
+          }
+        ]
+      },
+      {
+        path: 'deaths',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../deaths/deaths.module').then( m => m.DeathsPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../death-details/death-details.module').then( m => m.DeathDetailsPageModule)
+          }
+        ]
+      }
+    ]
+  },
+  {
     path: '',
-    component: TabsPage
+    redirectTo: '/tabs/characters',
+    pathMatch: 'full'
   }
 ];
 
