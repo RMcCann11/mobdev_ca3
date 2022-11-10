@@ -1,0 +1,7 @@
+{
+  "name": "BreakingBadFandom",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
