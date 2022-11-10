@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-death-count-by-character',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeathCountByCharacterPage implements OnInit {
 
-  constructor() { }
+  name : string;
+ 
+  characterdeathCount: any;
+
+  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
-  }
+    this.activatedRoute.queryParams.subscribe((params) => {
+
+      this.name = params.name;
+
+    });
+
+    this.http.get(`https://breakingbadapi.com/api/death-count?name=${this.name}`).subscribe((res) => {
+          
+      this.characterdeathCount = res;
+          
+    });
+    }
+  
 
 }

@@ -1,9 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>deathCountByCharacter</ion-title>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="/tabs/charactersForDeathCount"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Kills by {{name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-card *ngIf="characterdeathCount">
+    <ion-card-content>{{characterdeathCount[0].name}} was responible for the killing of {{characterdeathCount[0].deathCount}} people!!!</ion-card-content>
+  </ion-card>
 </ion-content>
+
+
+
