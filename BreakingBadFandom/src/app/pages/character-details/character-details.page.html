@@ -1,9 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>characterDetails</ion-title>
-  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref="/tabs/characters"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Character info for {{name}}</ion-title>
+    <!-- <ion-title>{{ episode[0].title }}</ion-title> -->
+  </ion-toolbar> 
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-card *ngIf="character">
+    <ion-card-content>
+    Date of Birth: {{ character[0].birthday}}
+    </ion-card-content>
+    <ion-card-content>
+    Occupation(s): {{ character[0].occupation }}
+    </ion-card-content>
+    <ion-card-content>
+    Nickname: {{ character[0].nickname }}
+    </ion-card-content>
+    <ion-card-content>
+    Character Status: {{ character[0].status }}
+    </ion-card-content>
+    <ion-card-content>
+    Played by: {{ character[0].portrayed }}
+    </ion-card-content>
+</ion-card>
 </ion-content>
+

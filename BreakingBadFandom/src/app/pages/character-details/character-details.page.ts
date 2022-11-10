@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-character-details',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterDetailsPage implements OnInit {
 
-  constructor() { }
+  name: string;
+ 
+  character: any;
+
+  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
+
+    this.activatedRoute.queryParams.subscribe((params) => {
+
+      console.log(params); 
+
+      this.name = params.name;
+
+    });
+
+    this.http.get(`https://breakingbadapi.com/api/characters?name=${this.name}`).subscribe((res) => {
+          this.character = res;
+          console.log(res);
+    });
   }
 
 }
