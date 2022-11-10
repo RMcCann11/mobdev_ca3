@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-episodes',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EpisodesPage implements OnInit {
 
-  constructor() { }
+  episodes: Observable<any>;
+
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
+    this.episodes = this.http.get('https://www.breakingbadapi.com/api/episodes');
+  }
+
+  openDetails(episode) {
+    let episodeId = episode.episode_id;
+    this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
   }
 
 }
