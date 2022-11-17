@@ -28,4 +28,6 @@ export class CharactersPage implements OnInit {
     );
   }
 
+  //In terms of openDetails(), please see the link provided in my README.md re the use of query parameters
+
 }

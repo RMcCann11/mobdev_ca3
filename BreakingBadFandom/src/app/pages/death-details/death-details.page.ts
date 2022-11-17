@@ -23,6 +23,8 @@ export class DeathDetailsPage implements OnInit {
 
     });
 
+    //In terms of the queryParams property, please see the link provided in my README.md re the use of query parameters
+
     this.http.get(`https://breakingbadapi.com/api/death?name=${this.name}`).subscribe((res) => {
           
       this.deathDetails = res;
@@ -30,5 +32,6 @@ export class DeathDetailsPage implements OnInit {
     });
   }
 
+ 
 
 }

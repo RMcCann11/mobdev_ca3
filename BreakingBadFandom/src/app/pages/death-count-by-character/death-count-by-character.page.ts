@@ -22,6 +22,8 @@ export class DeathCountByCharacterPage implements OnInit {
 
     });
 
+    //In terms of the queryParams property, please see the link provided in my README.md re the use of query parameters
+
     this.http.get(`https://breakingbadapi.com/api/death-count?name=${this.name}`).subscribe((res) => {
           
       this.characterdeathCount = res;
