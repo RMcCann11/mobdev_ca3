@@ -1,3 +1,3 @@
 tasks:
   - name: Install Ionic & Angular CLI
-    command: npm i -D -E @angular/cli && cd node_modules && cd ../BreakingBadFandom && npx --yes ionic serve
+    command: npm i -D -E @angular/cli && npm install --save-dev @angular-devkit/build-angular && cd BreakingBadFandom && npx --yes ionic serve
